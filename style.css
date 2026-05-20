@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: #f1f5f9;
+}
+
+header {
+  text-align: center;
+  padding: 40px;
+  background: #020617;
+}
+
+nav {
+  text-align: center;
+  background: #1e293b;
+  padding: 10px;
+}
+
+nav a {
+  color: #f1f5f9;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+section {
+  padding: 40px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+}
