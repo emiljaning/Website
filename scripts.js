@@ -26,11 +26,9 @@ if (tabBtns.length > 0) {
         btn.addEventListener('click', () => {
             const tabId = btn.getAttribute('data-tab');
             
-            // Remove active class from all buttons and contents
             tabBtns.forEach(btn => btn.classList.remove('active'));
             tabContents.forEach(content => content.classList.remove('active'));
             
-            // Add active class to clicked button and corresponding content
             btn.classList.add('active');
             const activeContent = document.getElementById(`${tabId}-tab`);
             if (activeContent) {
@@ -43,7 +41,6 @@ if (tabBtns.length > 0) {
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-        // Don't prevent default if it's just a hash link without target
         const href = this.getAttribute('href');
         if (href === '#' || href === '') return;
         
@@ -58,7 +55,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Contact form submission with email sending
+// ========== WORKING CONTACT FORM ==========
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
@@ -66,61 +63,61 @@ if (contactForm) {
         
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
         
         // Get form data
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
         const service = document.getElementById('service').value;
-        const message = document.getElementById('message').value;
+        const message = document.getElementById('message').value.trim();
         
-        // Validate form
+        // Validation
         if (!name || !email || !message) {
-            alert('Please fill in all required fields.');
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
+            alert('❌ Please fill in all required fields (Name, Email, and Message).');
             return;
         }
         
-        // Create email content
-        const emailBody = `Name: ${name}%0A%0AEmail: ${email}%0A%0AService Needed: ${service}%0A%0AMessage: ${message}%0A%0A---%0ASent from AssistOnIT website contact form`;
+        if (!email.includes('@') || !email.includes('.')) {
+            alert('❌ Please enter a valid email address.');
+            return;
+        }
         
-        // Method 1: Try FormSubmit.co (free, no backend needed)
+        // Show sending status
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // Method 1: Try FormSubmit.co
         try {
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('service', service);
+            formData.append('message', message);
+            formData.append('_subject', `New Contact from AssistOnIT - ${name}`);
+            formData.append('_template', 'table');
+            
             const response = await fetch('https://formsubmit.co/ajax/assistonit@outlook.com', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    service: service,
-                    message: message,
-                    _subject: `New Contact from AssistOnIT - ${name}`,
-                    _template: 'table',
-                    _captcha: 'false'
-                })
+                body: formData
             });
             
-            const data = await response.json();
+            const result = await response.json();
             
-            if (response.ok && data.success !== false) {
+            if (response.ok && result.success !== false) {
                 alert('✅ Message sent successfully! We will get back to you within 24 hours.');
                 contactForm.reset();
             } else {
-                // Fallback to mailto if FormSubmit fails
-                window.location.href = `mailto:assistonit@outlook.com?subject=New Contact Form Submission from ${encodeURIComponent(name)}&body=${emailBody}`;
-                alert('📧 Please check your email client to complete sending the message.');
+                // Fallback to mailto
+                const emailBody = `Name: ${name}%0A%0AEmail: ${email}%0A%0AService: ${service}%0A%0AMessage: ${message}%0A%0A---%0ASent from AssistOnIT website`;
+                window.location.href = `mailto:assistonit@outlook.com?subject=Contact from ${encodeURIComponent(name)}&body=${emailBody}`;
+                alert('📧 Please check your email client to send the message.');
                 contactForm.reset();
             }
         } catch (error) {
-            console.log('FormSubmit error, using mailto fallback:', error);
+            console.error('Form submission error:', error);
             // Fallback to mailto
-            window.location.href = `mailto:assistonit@outlook.com?subject=New Contact Form Submission from ${encodeURIComponent(name)}&body=${emailBody}`;
-            alert('📧 Please check your email client to complete sending the message.');
+            const emailBody = `Name: ${name}%0A%0AEmail: ${email}%0A%0AService: ${service}%0A%0AMessage: ${message}%0A%0A---%0ASent from AssistOnIT website`;
+            window.location.href = `mailto:assistonit@outlook.com?subject=Contact from ${encodeURIComponent(name)}&body=${emailBody}`;
+            alert('📧 Please check your email client to send the message.');
             contactForm.reset();
         } finally {
             submitBtn.textContent = originalText;
@@ -129,41 +126,30 @@ if (contactForm) {
     });
 }
 
-// Make phone and email links clickable in contact cards
-document.querySelectorAll('.info-card a').forEach(link => {
-    link.addEventListener('click', function(e) {
-        // Just let the default behavior work
-        console.log('Opening:', this.href);
-    });
-});
-
 // Newsletter form submission
 const newsletterForm = document.getElementById('newsletterForm');
 if (newsletterForm) {
     newsletterForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const emailInput = newsletterForm.querySelector('input[type="email"]');
-        const email = emailInput.value;
+        const email = emailInput.value.trim();
         
         if (email && email.includes('@')) {
-            // Send to FormSubmit as well
+            // Send to FormSubmit
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('_subject', 'Newsletter Subscription - AssistOnIT');
+            formData.append('message', `New newsletter subscription from: ${email}`);
+            
             fetch('https://formsubmit.co/ajax/assistonit@outlook.com', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    email: email,
-                    _subject: 'Newsletter Subscription',
-                    message: `New newsletter subscription from: ${email}`
-                })
+                body: formData
             }).catch(err => console.log('Newsletter error:', err));
             
-            alert('Thank you for subscribing to our newsletter!');
+            alert('✅ Thank you for subscribing to our newsletter!');
             emailInput.value = '';
         } else {
-            alert('Please enter a valid email address.');
+            alert('❌ Please enter a valid email address.');
         }
     });
 }
@@ -195,7 +181,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all sections and cards for animation
 const animatedElements = document.querySelectorAll('section, .service-card, .info-card, .tab-item');
 if (animatedElements.length > 0) {
     animatedElements.forEach(el => {
@@ -206,7 +191,7 @@ if (animatedElements.length > 0) {
     });
 }
 
-// Fix for footer service links - make them scroll to services section
+// Fix for footer links
 document.querySelectorAll('.footer-links a, .footer-about a').forEach(link => {
     link.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
@@ -223,33 +208,11 @@ document.querySelectorAll('.footer-links a, .footer-about a').forEach(link => {
     });
 });
 
-// WhatsApp button click tracking (optional)
-const whatsappBtns = document.querySelectorAll('.btn-whatsapp, a[href*="wa.me"]');
-whatsappBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        console.log('WhatsApp button clicked');
-    });
-});
-
-// Add loading state for external links
-const externalLinks = document.querySelectorAll('a[target="_blank"]');
-externalLinks.forEach(link => {
+// Make phone numbers clickable
+document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(link => {
     link.addEventListener('click', () => {
-        console.log('Opening external link:', link.href);
+        console.log('Opening contact link:', link.href);
     });
 });
 
-// Page load complete
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('AssistOnIT website loaded successfully');
-    
-    // Check if contact form exists and add any additional validation
-    if (contactForm) {
-        const phoneInput = document.getElementById('phone');
-        if (phoneInput) {
-            phoneInput.addEventListener('input', (e) => {
-                e.target.value = e.target.value.replace(/[^0-9+]/g, '');
-            });
-        }
-    }
-});
+console.log('AssistOnIT website loaded - Contact form ready');
