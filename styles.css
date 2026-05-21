@@ -534,237 +534,51 @@ section {
     color: var(--text-light);
     margin-top: 1rem;
 }
-
-/* Footer */
-.footer {
-    background: var(--dark-bg);
-    color: var(--white);
-    padding: 3rem 0 1rem;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-about h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.footer-about span {
-    color: var(--primary-color);
-}
-
-.footer-about p {
-    color: #94a3b8;
-    margin-bottom: 1rem;
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-links a {
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-.social-links a:hover {
-    background: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-.footer-links h4 {
-    margin-bottom: 1rem;
-}
-
-.footer-links ul {
-    list-style: none;
-}
-
-.footer-links li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-links a {
-    color: #94a3b8;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.footer-links a:hover {
-    color: var(--white);
-}
-
-.footer-newsletter input {
-    width: calc(100% - 50px);
-    padding: 0.75rem;
-    border: none;
-    border-radius: 8px 0 0 8px;
-    font-family: inherit;
-}
-
-.footer-newsletter button {
-    width: 50px;
-    padding: 0.75rem;
-    background: var(--primary-color);
-    border: none;
-    border-radius: 0 8px 8px 0;
-    color: var(--white);
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.footer-newsletter button:hover {
-    background: var(--primary-dark);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #94a3b8;
-    font-size: 0.875rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hamburger {
-        display: flex;
-    }
-    
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background: var(--white);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        padding: 2rem 0;
-    }
-    
-    .nav-menu.active {
-        left: 0;
-    }
-    
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .hero-stats {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
-    .section-header h2 {
-        font-size: 1.75rem;
-    }
-    
-    .about-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .tab-buttons {
-        flex-direction: column;
-    }
-    
-    .tab-btn {
-        border-bottom: 1px solid #e2e8f0;
-    }
-    
-    .tab-btn.active {
-        border-bottom: 1px solid var(--primary-color);
-        margin-bottom: 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 16px;
-    }
-    
-    .hero-title {
-        font-size: 1.75rem;
-    }
-    
-    .service-card {
-        padding: 1.5rem;
-    }
-}
-/* Social handles in footer */
-.social-handles {
-    margin-top: 1rem;
-}
-
-.social-handles p {
-    margin: 0.5rem 0;
-    color: #94a3b8;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.social-handles i {
-    width: 24px;
-    color: var(--primary-color);
-}
-
-/* Updated social links spacing */
-.social-links {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.social-links a {
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    text-decoration: none;
-    transition: all 0.3s;
-}
-
-.social-links a:hover {
-    background: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-/* Instagram specific hover */
-.social-links a:hover .fa-instagram {
-    color: #fff;
-}
-
-/* TikTok specific hover */
-.social-links a:hover .fa-tiktok {
-    color: #fff;
-}
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h3>Assist<span>OnIT</span></h3>
+                <p>Your trusted partner for IT support, cybersecurity, programming, website solutions, and electrical engineering.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/AssistOnIT" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@AssistOnIT" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://twitter.com/AssistOnIT" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/AssistOnIT" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/company/AssistOnIT" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">IT Support</a></li>
+                    <li><a href="#services">Cybersecurity</a></li>
+                    <li><a href="#services">Programming & Web</a></li>
+                    <li><a href="#services">Electrical Engineering</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Follow Us</h4>
+                <p>Connect with us on social media</p>
+                <div class="social-handles">
+                    <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/AssistOnIT" target="_blank" rel="noopener noreferrer">@AssistOnIT</a></p>
+                    <p><i class="fab fa-tiktok"></i> <a href="https://www.tiktok.com/@AssistOnIT" target="_blank" rel="noopener noreferrer">@AssistOnIT</a></p>
+                    <p><i class="fab fa-twitter"></i> <a href="https://twitter.com/AssistOnIT" target="_blank" rel="noopener noreferrer">@AssistOnIT</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 AssistOnIT. All rights reserved. | Follow us: <a href="https://www.instagram.com/AssistOnIT" target="_blank" rel="noopener noreferrer">@AssistOnIT</a> on social media</p>
+        </div>
+    </div>
+</footer>
