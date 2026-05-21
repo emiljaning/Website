@@ -581,4 +581,25 @@ section {
             <p>&copy; 2026 AssistOnIT. All rights reserved. | Follow us: <a href="https://www.instagram.com/AssistOnIT" target="_blank" rel="noopener noreferrer">@AssistOnIT</a> on social media</p>
         </div>
     </div>
+/* Social handles links in footer */
+.social-handles a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-handles a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-bottom a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
 </footer>
