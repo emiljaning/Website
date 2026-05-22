@@ -97,7 +97,7 @@ function switchLanguage(lang) {
     
     // Update active button
     document.querySelectorAll('.lang-btn').forEach(btn => {
-        if (btn.dataset.lang === lang) {
+        if (btn.getAttribute('data-lang') === lang) {
             btn.classList.add('active');
         } else {
             btn.classList.remove('active');
@@ -112,7 +112,7 @@ function switchLanguage(lang) {
         }
     });
     
-    // Update all elements with data-key-placeholder attribute
+    // Update placeholders
     document.querySelectorAll('[data-key-placeholder]').forEach(el => {
         const key = el.getAttribute('data-key-placeholder');
         if (translations[lang][key]) {
@@ -127,9 +127,6 @@ function switchLanguage(lang) {
             option.textContent = translations[lang][key];
         }
     });
-    
-    // Update HTML lang attribute
-    document.documentElement.lang = lang === 'sq' ? 'sq' : 'en';
     
     // Save preference
     localStorage.setItem('preferredLanguage', lang);
@@ -233,7 +230,7 @@ if (contactForm) {
 
 // Language switcher event listeners
 document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.addEventListener('click', () => switchLanguage(btn.dataset.lang));
+    btn.addEventListener('click', () => switchLanguage(btn.getAttribute('data-lang')));
 });
 
 // Load saved language
@@ -270,4 +267,4 @@ document.querySelectorAll('section, .service-card, .info-card, .tab-item').forEa
     observer.observe(el);
 });
 
-console.log('AssistOnIT website loaded - Bilingual version working!');
+console.log('AssistOnIT website loaded - Language switcher ready!');
