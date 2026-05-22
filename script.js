@@ -1,4 +1,4 @@
-// Language translations
+// ========== LANGUAGE TRANSLATIONS ==========
 const translations = {
     en: {
         'nav-home': 'Home', 'nav-services': 'Services', 'nav-about': 'About', 'nav-contact': 'Contact',
@@ -90,7 +90,7 @@ const translations = {
     }
 };
 
-let currentLang = 'en';
+let currentLang = 'sq';  // Albanian as default
 
 function switchLanguage(lang) {
     currentLang = lang;
@@ -132,7 +132,7 @@ function switchLanguage(lang) {
     localStorage.setItem('preferredLanguage', lang);
 }
 
-// Mobile Menu Toggle
+// ========== MOBILE MENU TOGGLE ==========
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
@@ -143,6 +143,7 @@ if (hamburger) {
     });
 }
 
+// Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
@@ -150,7 +151,7 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     });
 });
 
-// Tab functionality
+// ========== TAB FUNCTIONALITY ==========
 const tabBtns = document.querySelectorAll('.tab-btn');
 const tabContents = document.querySelectorAll('.tab-content');
 
@@ -158,42 +159,57 @@ if (tabBtns.length > 0) {
     tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const tabId = btn.getAttribute('data-tab');
-            tabBtns.forEach(b => b.classList.remove('active'));
-            tabContents.forEach(c => c.classList.remove('active'));
+            
+            tabBtns.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
             btn.classList.add('active');
             const activeContent = document.getElementById(`${tabId}-tab`);
-            if (activeContent) activeContent.classList.add('active');
+            if (activeContent) {
+                activeContent.classList.add('active');
+            }
         });
     });
 }
 
-// Smooth scrolling
+// ========== SMOOTH SCROLLING ==========
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         const href = this.getAttribute('href');
         if (href === '#' || href === '') return;
+        
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
     });
 });
 
-// Contact form
+// ========== CONTACT FORM ==========
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
+        
         const submitBtn = contactForm.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
+        
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
         const service = document.getElementById('service').value;
         const message = document.getElementById('message').value.trim();
         
         if (!name || !email || !message) {
-            alert(currentLang === 'sq' ? 'Ju lutem plotësoni të gjitha fushat.' : 'Please fill all fields.');
+            alert(currentLang === 'sq' ? 'Ju lutem plotësoni të gjitha fushat.' : 'Please fill in all required fields.');
+            return;
+        }
+        
+        if (!email.includes('@') || !email.includes('.')) {
+            alert(currentLang === 'sq' ? 'Ju lutem vendosni një adresë email të vlefshme.' : 'Please enter a valid email address.');
             return;
         }
         
@@ -206,7 +222,8 @@ if (contactForm) {
             formData.append('email', email);
             formData.append('service', service);
             formData.append('message', message);
-            formData.append('_subject', `Contact from AssistOnIT - ${name}`);
+            formData.append('_subject', `New Contact from AssistOnIT - ${name}`);
+            formData.append('_template', 'table');
             
             const response = await fetch('https://formsubmit.co/ajax/assistonit@outlook.com', {
                 method: 'POST',
@@ -214,13 +231,19 @@ if (contactForm) {
             });
             
             if (response.ok) {
-                alert(currentLang === 'sq' ? 'Mesazhi u dërgua!' : 'Message sent!');
+                alert(currentLang === 'sq' ? 'Mesazhi u dërgua me sukses!' : 'Message sent successfully!');
                 contactForm.reset();
             } else {
-                window.location.href = `mailto:assistonit@outlook.com?subject=Contact from ${name}&body=${message}`;
+                const emailBody = `Name: ${name}%0A%0AEmail: ${email}%0A%0AService: ${service}%0A%0AMessage: ${message}`;
+                window.location.href = `mailto:assistonit@outlook.com?subject=Contact from ${encodeURIComponent(name)}&body=${emailBody}`;
+                alert(currentLang === 'sq' ? 'Ju lutem kontrolloni email-in tuaj.' : 'Please check your email client.');
+                contactForm.reset();
             }
         } catch (error) {
-            window.location.href = `mailto:assistonit@outlook.com?subject=Contact from ${name}&body=${message}`;
+            const emailBody = `Name: ${name}%0A%0AEmail: ${email}%0A%0AService: ${service}%0A%0AMessage: ${message}`;
+            window.location.href = `mailto:assistonit@outlook.com?subject=Contact from ${encodeURIComponent(name)}&body=${emailBody}`;
+            alert(currentLang === 'sq' ? 'Ju lutem kontrolloni email-in tuaj.' : 'Please check your email client.');
+            contactForm.reset();
         } finally {
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
@@ -228,17 +251,47 @@ if (contactForm) {
     });
 }
 
-// Language switcher event listeners
+// ========== NEWSLETTER FORM ==========
+const newsletterForm = document.getElementById('newsletterForm');
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const emailInput = newsletterForm.querySelector('input[type="email"]');
+        const email = emailInput.value.trim();
+        
+        if (email && email.includes('@')) {
+            const formData = new FormData();
+            formData.append('email', email);
+            formData.append('_subject', 'Newsletter Subscription - AssistOnIT');
+            formData.append('message', `New newsletter subscription from: ${email}`);
+            
+            fetch('https://formsubmit.co/ajax/assistonit@outlook.com', {
+                method: 'POST',
+                body: formData
+            }).catch(err => console.log('Newsletter error:', err));
+            
+            alert(currentLang === 'sq' ? 'Faleminderit për abonimin!' : 'Thank you for subscribing!');
+            emailInput.value = '';
+        } else {
+            alert(currentLang === 'sq' ? 'Ju lutem vendosni një adresë email të vlefshme.' : 'Please enter a valid email address.');
+        }
+    });
+}
+
+// ========== LANGUAGE SWITCHER EVENT LISTENERS ==========
 document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => switchLanguage(btn.getAttribute('data-lang')));
 });
 
-// Load saved language
+// ========== LOAD SAVED LANGUAGE (DEFAULT TO SQ) ==========
 const savedLang = localStorage.getItem('preferredLanguage');
-if (savedLang === 'sq') switchLanguage('sq');
-else switchLanguage('en');
+if (savedLang === 'en') {
+    switchLanguage('en');
+} else {
+    switchLanguage('sq');  // Default to Albanian
+}
 
-// Navbar scroll effect
+// ========== NAVBAR SCROLL EFFECT ==========
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 100) {
@@ -250,7 +303,12 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Scroll animations
+// ========== SCROLL ANIMATIONS ==========
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -258,13 +316,40 @@ const observer = new IntersectionObserver((entries) => {
             entry.target.style.transform = 'translateY(0)';
         }
     });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+}, observerOptions);
 
-document.querySelectorAll('section, .service-card, .info-card, .tab-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
+const animatedElements = document.querySelectorAll('section, .service-card, .info-card, .tab-item');
+if (animatedElements.length > 0) {
+    animatedElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+}
+
+// ========== FOOTER LINKS ==========
+document.querySelectorAll('.footer-links a, .footer-about a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    });
 });
 
-console.log('AssistOnIT website loaded - Language switcher ready!');
+// ========== PHONE & EMAIL LINKS ==========
+document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(link => {
+    link.addEventListener('click', () => {
+        console.log('Opening contact link:', link.href);
+    });
+});
+
+console.log('AssistOnIT website loaded - Albanian (SQ) is default language!');
