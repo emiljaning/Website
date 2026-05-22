@@ -21,11 +21,15 @@
                 <a href="#home">Assist<span>OnIT</span></a>
             </div>
             <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" data-key="nav-home">Home</a></li>
+                <li><a href="#services" data-key="nav-services">Services</a></li>
+                <li><a href="#about" data-key="nav-about">About</a></li>
+                <li><a href="#contact" data-key="nav-contact">Contact</a></li>
             </ul>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="sq">SQ</button>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -39,31 +43,31 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    Your Trusted Partner for<br>
-                    <span class="highlight">Technology & Digital Solutions</span>
+                    <span data-key="hero-title1">Your Trusted Partner for</span><br>
+                    <span class="highlight" data-key="hero-title2">Technology & Digital Solutions</span>
                 </h1>
-                <p class="hero-subtitle">
+                <p class="hero-subtitle" data-key="hero-subtitle">
                     Professional IT support, cybersecurity, programming, website solutions, and electrical engineering services 
                     for homes and businesses. Reliable, secure, and innovative.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Get Free Consultation</a>
-                    <a href="#services" class="btn btn-secondary">View Services</a>
-                    <a href="https://wa.me/355684646464?text=Hello%20AssistOnIT%2C%20I%27m%20interested%20in%20your%20services" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+                    <a href="#contact" class="btn btn-primary" data-key="hero-btn1">Get Free Consultation</a>
+                    <a href="#services" class="btn btn-secondary" data-key="hero-btn2">View Services</a>
+                    <a href="https://wa.me/355684646464?text=Hello%20AssistOnIT%2C%20I%27m%20interested%20in%20your%20services" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> <span data-key="hero-btn3">WhatsApp Us</span></a>
                 </div>
             </div>
             <div class="hero-stats">
                 <div class="stat">
                     <h3>100+</h3>
-                    <p>Happy Clients</p>
+                    <p data-key="stat1">Happy Clients</p>
                 </div>
                 <div class="stat">
                     <h3>500+</h3>
-                    <p>Projects Completed</p>
+                    <p data-key="stat2">Projects Completed</p>
                 </div>
                 <div class="stat">
                     <h3>24/7</h3>
-                    <p>Support Available</p>
+                    <p data-key="stat3">Support Available</p>
                 </div>
             </div>
         </div>
@@ -73,9 +77,9 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">What We Offer</span>
-                <h2>Our Professional Services</h2>
-                <p>Comprehensive technology, digital, and engineering solutions tailored to your needs</p>
+                <span class="section-tag" data-key="services-tag">What We Offer</span>
+                <h2 data-key="services-title">Our Professional Services</h2>
+                <p data-key="services-subtitle">Comprehensive technology, digital, and engineering solutions tailored to your needs</p>
             </div>
             <div class="services-grid">
                 <!-- IT Support -->
@@ -83,13 +87,13 @@
                     <div class="service-icon">
                         <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h3>IT Support & Consulting</h3>
-                    <p>Complete IT infrastructure management, help desk support, system maintenance, and technology consulting for businesses of all sizes.</p>
+                    <h3 data-key="service1-title">IT Support & Consulting</h3>
+                    <p data-key="service1-desc">Complete IT infrastructure management, help desk support, system maintenance, and technology consulting for businesses of all sizes.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> 24/7 Remote Support</li>
-                        <li><i class="fas fa-check"></i> Network Setup & Management</li>
-                        <li><i class="fas fa-check"></i> Data Backup & Recovery</li>
-                        <li><i class="fas fa-check"></i> Hardware & Software Installation</li>
+                        <li><i class="fas fa-check"></i> <span data-key="service1-feat1">24/7 Remote Support</span></li>
+                        <li><i class="fas fa-check"></i> <span data-key="service1-feat2">Network Setup & Management</span></li>
+                        <li><i class="fas fa-check"></i> <span data-key="service1-feat3">Data Backup & Recovery</span></li>
+                        <li><i class="fas fa-check"></i> <span data-key="service1-feat4">Hardware & Software Installation</span></li>
                     </ul>
                 </div>
 
@@ -98,13 +102,13 @@
                     <div class="service-icon">
                         <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>Cybersecurity</h3>
-                    <p>Protect your digital assets with advanced security solutions, threat detection, and comprehensive risk management strategies.</p>
+                    <h3 data-key="service2-title">Cybersecurity</h3>
+                    <p data-key="service2-desc">Protect your digital assets with advanced security solutions, threat detection, and comprehensive risk management strategies.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Network Security Audits</li>
-                        <li><i class="fas fa-check"></i> Malware & Ransomware Protection</li>
-                        <li><i class="fas fa-check"></i> Security Awareness Training</li>
-                        <li><i class="fas fa-check"></i> Compliance & Risk Assessment</li>
+                        <li><i class="fas fa-check"></i> <span data-key="service2-feat1">Network Security Audits</span></li>
+                        <li><i class="fas fa-check"></i> <span data-key="service2-feat2">Malware & Ransomware Protection</span></li>
+                        <li><i class="fas fa-check"></i> <span data-key="service2-feat3">Security Awareness Training</span></li>
+                        <li><i class="fas fa-check"></i> <span data-key="service2-feat4">Compliance & Risk Assessment</span></li>
                     </ul>
                 </div>
 
@@ -113,13 +117,13 @@
                     <div class="service-icon">
                         <i class="fas fa-code"></i>
                     </div>
-                    <h3>Programming & Web Solutions</h3>
-                    <p>Custom software development, website design, and web applications for homes and businesses.</p>
+                    <h3 data-key="service3-title">Programming & Web Solutions</h3>
+                    <p data-key="service3-desc">Custom software development, website design, and web applications for homes and businesses.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Custom Website Development</li>
-                        <li><i class="fas fa-check"></i> E-commerce Solutions</li>
-                        <li><i class="fas fa-check"></i> Mobile App Development</li>
-                        <li><i class="fas fa-check"></i> CMS & Database Design</li>
+                        <li><i class="fas fa-check"></i> <span data-key="service3-feat1">Custom Website Development</span></li>
+                        <li><i class="fas fa-check"></i> <span data-key="service3-feat2">E-commerce Solutions</span></li>
+                        <li><i class="fas fa-check"></i> <span data-key="service3-feat3">Mobile App Development</span></li>
+                        <li><i class="fas fa-check"></i> <span data-key="service3-feat4">CMS & Database Design</span></li>
                     </ul>
                 </div>
 
@@ -128,13 +132,13 @@
                     <div class="service-icon">
                         <i class="fas fa-microchip"></i>
                     </div>
-                    <h3>Electrical Engineering</h3>
-                    <p>Innovative electrical engineering solutions for residential and commercial projects, from design to implementation.</p>
+                    <h3 data-key="service4-title">Electrical Engineering</h3>
+                    <p data-key="service4-desc">Innovative electrical engineering solutions for residential and commercial projects, from design to implementation.</p>
                     <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Home Automation Systems</li>
-                        <li><i class="fas fa-check"></i> Smart Lighting Control</li>
-                        <li><i class="fas fa-check"></i> Energy Efficiency Solutions</li>
-                        <li><i class="fas fa-check"></i> Electrical System Design</li>
+                        <li><i class="fas fa-check"></i> <span data-key="service4-feat1">Home Automation Systems</span></li>
+                        <li><i class="fas fa-check"></i> <span data-key="service4-feat2">Smart Lighting Control</span></li>
+                        <li><i class="fas fa-check"></i> <span data-key="service4-feat3">Energy Efficiency Solutions</span></li>
+                        <li><i class="fas fa-check"></i> <span data-key="service4-feat4">Electrical System Design</span></li>
                     </ul>
                 </div>
             </div>
@@ -145,41 +149,41 @@
     <section class="service-details">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Detailed Services</span>
-                <h2>Specialized Solutions</h2>
-                <p>We provide tailored solutions for both residential and commercial clients</p>
+                <span class="section-tag" data-key="details-tag">Detailed Services</span>
+                <h2 data-key="details-title">Specialized Solutions</h2>
+                <p data-key="details-subtitle">We provide tailored solutions for both residential and commercial clients</p>
             </div>
             <div class="tabs">
                 <div class="tab-buttons">
-                    <button class="tab-btn active" data-tab="home">For Home</button>
-                    <button class="tab-btn" data-tab="business">For Business</button>
+                    <button class="tab-btn active" data-tab="home" data-key="tab-home">For Home</button>
+                    <button class="tab-btn" data-tab="business" data-key="tab-business">For Business</button>
                 </div>
                 <div class="tab-content active" id="home-tab">
                     <div class="tab-grid">
                         <div class="tab-item">
                             <i class="fas fa-wifi"></i>
-                            <h4>Home Network Setup</h4>
-                            <p>Secure, high-speed WiFi throughout your home</p>
+                            <h4 data-key="home1-title">Home Network Setup</h4>
+                            <p data-key="home1-desc">Secure, high-speed WiFi throughout your home</p>
                         </div>
                         <div class="tab-item">
                             <i class="fas fa-video"></i>
-                            <h4>Smart Home Security</h4>
-                            <p>Cameras, sensors, and smart locks installation</p>
+                            <h4 data-key="home2-title">Smart Home Security</h4>
+                            <p data-key="home2-desc">Cameras, sensors, and smart locks installation</p>
                         </div>
                         <div class="tab-item">
                             <i class="fas fa-robot"></i>
-                            <h4>Home Automation</h4>
-                            <p>Voice-controlled lighting, thermostats, and appliances</p>
+                            <h4 data-key="home3-title">Home Automation</h4>
+                            <p data-key="home3-desc">Voice-controlled lighting, thermostats, and appliances</p>
                         </div>
                         <div class="tab-item">
                             <i class="fas fa-globe"></i>
-                            <h4>Personal Websites</h4>
-                            <p>Custom portfolio and personal websites</p>
+                            <h4 data-key="home4-title">Personal Websites</h4>
+                            <p data-key="home4-desc">Custom portfolio and personal websites</p>
                         </div>
                         <div class="tab-item">
                             <i class="fas fa-plug"></i>
-                            <h4>Electrical Upgrades</h4>
-                            <p>Panel upgrades, EV chargers, and lighting installation</p>
+                            <h4 data-key="home5-title">Electrical Upgrades</h4>
+                            <p data-key="home5-desc">Panel upgrades, EV chargers, and lighting installation</p>
                         </div>
                     </div>
                 </div>
@@ -187,28 +191,28 @@
                     <div class="tab-grid">
                         <div class="tab-item">
                             <i class="fas fa-server"></i>
-                            <h4>Server Management</h4>
-                            <p>On-premise and cloud server solutions</p>
+                            <h4 data-key="business1-title">Server Management</h4>
+                            <p data-key="business1-desc">On-premise and cloud server solutions</p>
                         </div>
                         <div class="tab-item">
                             <i class="fas fa-lock"></i>
-                            <h4>Enterprise Security</h4>
-                            <p>Firewalls, VPNs, and intrusion detection</p>
+                            <h4 data-key="business2-title">Enterprise Security</h4>
+                            <p data-key="business2-desc">Firewalls, VPNs, and intrusion detection</p>
                         </div>
                         <div class="tab-item">
                             <i class="fas fa-chart-line"></i>
-                            <h4>IT Infrastructure</h4>
-                            <p>Scalable solutions for growing businesses</p>
+                            <h4 data-key="business3-title">IT Infrastructure</h4>
+                            <p data-key="business3-desc">Scalable solutions for growing businesses</p>
                         </div>
                         <div class="tab-item">
                             <i class="fas fa-shopping-cart"></i>
-                            <h4>E-commerce Solutions</h4>
-                            <p>Online stores with payment integration</p>
+                            <h4 data-key="business4-title">E-commerce Solutions</h4>
+                            <p data-key="business4-desc">Online stores with payment integration</p>
                         </div>
                         <div class="tab-item">
                             <i class="fas fa-users"></i>
-                            <h4>Managed Services</h4>
-                            <p>Complete IT department outsourcing</p>
+                            <h4 data-key="business5-title">Managed Services</h4>
+                            <p data-key="business5-desc">Complete IT department outsourcing</p>
                         </div>
                     </div>
                 </div>
@@ -221,36 +225,36 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-content">
-                    <span class="section-tag">About Us</span>
-                    <h2>Why Choose AssistOnIT?</h2>
-                    <p>With years of experience in IT, cybersecurity, programming, web development, and electrical engineering, we bring together multiple essential disciplines to provide complete technology solutions for modern homes and businesses.</p>
+                    <span class="section-tag" data-key="about-tag">About Us</span>
+                    <h2 data-key="about-title">Why Choose AssistOnIT?</h2>
+                    <p data-key="about-desc">With years of experience in IT, cybersecurity, programming, web development, and electrical engineering, we bring together multiple essential disciplines to provide complete technology solutions for modern homes and businesses.</p>
                     <div class="about-features">
                         <div class="about-feature">
                             <i class="fas fa-certificate"></i>
                             <div>
-                                <h4>Certified Professionals</h4>
-                                <p>Industry-certified experts in all domains</p>
+                                <h4 data-key="about-feat1-title">Certified Professionals</h4>
+                                <p data-key="about-feat1-desc">Industry-certified experts in all domains</p>
                             </div>
                         </div>
                         <div class="about-feature">
                             <i class="fas fa-clock"></i>
                             <div>
-                                <h4>Rapid Response</h4>
-                                <p>Quick turnaround times and emergency support</p>
+                                <h4 data-key="about-feat2-title">Rapid Response</h4>
+                                <p data-key="about-feat2-desc">Quick turnaround times and emergency support</p>
                             </div>
                         </div>
                         <div class="about-feature">
                             <i class="fas fa-hand-holding-usd"></i>
                             <div>
-                                <h4>Competitive Pricing</h4>
-                                <p>Transparent pricing with no hidden fees</p>
+                                <h4 data-key="about-feat3-title">Competitive Pricing</h4>
+                                <p data-key="about-feat3-desc">Transparent pricing with no hidden fees</p>
                             </div>
                         </div>
                         <div class="about-feature">
                             <i class="fas fa-headset"></i>
                             <div>
-                                <h4>24/7 Support</h4>
-                                <p>Round-the-clock assistance when you need it</p>
+                                <h4 data-key="about-feat4-title">24/7 Support</h4>
+                                <p data-key="about-feat4-desc">Round-the-clock assistance when you need it</p>
                             </div>
                         </div>
                     </div>
@@ -258,7 +262,7 @@
                 <div class="about-image">
                     <div class="image-placeholder">
                         <i class="fas fa-chalkboard-user"></i>
-                        <p>Expert Team Ready to Help</p>
+                        <p data-key="about-image-text">Expert Team Ready to Help</p>
                     </div>
                 </div>
             </div>
@@ -269,57 +273,57 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Get In Touch</span>
-                <h2>Contact Us Today</h2>
-                <p>Ready to secure and optimize your technology? Let's talk!</p>
+                <span class="section-tag" data-key="contact-tag">Get In Touch</span>
+                <h2 data-key="contact-title">Contact Us Today</h2>
+                <p data-key="contact-subtitle">Ready to secure and optimize your technology? Let's talk!</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info">
                     <div class="info-card">
                         <i class="fas fa-envelope"></i>
-                        <h4>Email Us</h4>
+                        <h4 data-key="contact-email-title">Email Us</h4>
                         <p><a href="mailto:assistonit@outlook.com">assistonit@outlook.com</a></p>
                     </div>
                     <div class="info-card">
                         <i class="fas fa-phone-alt"></i>
-                        <h4>Call Us</h4>
+                        <h4 data-key="contact-phone-title">Call Us</h4>
                         <p><a href="tel:+355684646464">+355 68 46 46 464</a></p>
                     </div>
                     <div class="info-card">
                         <i class="fab fa-whatsapp"></i>
-                        <h4>WhatsApp Us</h4>
+                        <h4 data-key="contact-wa-title">WhatsApp Us</h4>
                         <p><a href="https://wa.me/355684646464?text=Hello%20AssistOnIT%2C%20I%27m%20interested%20in%20your%20services" target="_blank">+355 68 46 46 464</a></p>
                     </div>
                     <div class="info-card">
                         <i class="fas fa-clock"></i>
-                        <h4>Business Hours</h4>
-                        <p>Monday - Friday: 8AM - 8PM</p>
-                        <p>Saturday: 10AM - 4PM</p>
-                        <p>Sunday: Emergency Only</p>
+                        <h4 data-key="contact-hours-title">Business Hours</h4>
+                        <p data-key="hours1">Monday - Friday: 8AM - 8PM</p>
+                        <p data-key="hours2">Saturday: 10AM - 4PM</p>
+                        <p data-key="hours3">Sunday: Emergency Only</p>
                     </div>
                 </div>
                 <form class="contact-form" id="contactForm">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <input type="text" id="name" name="name" placeholder="Your Name" data-key-placeholder="form-name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <input type="email" id="email" name="email" placeholder="Your Email" data-key-placeholder="form-email" required>
                     </div>
                     <div class="form-group">
                         <select id="service" name="service">
-                            <option value="">Select Service Needed</option>
-                            <option value="IT Support">IT Support</option>
-                            <option value="Cybersecurity">Cybersecurity</option>
-                            <option value="Programming & Web Solutions">Programming & Web Solutions</option>
-                            <option value="Electrical Engineering">Electrical Engineering</option>
-                            <option value="Multiple Services">Multiple Services</option>
+                            <option value="" data-key="form-service-default">Select Service Needed</option>
+                            <option value="IT Support" data-key="form-service1">IT Support</option>
+                            <option value="Cybersecurity" data-key="form-service2">Cybersecurity</option>
+                            <option value="Programming & Web Solutions" data-key="form-service3">Programming & Web Solutions</option>
+                            <option value="Electrical Engineering" data-key="form-service4">Electrical Engineering</option>
+                            <option value="Multiple Services" data-key="form-service5">Multiple Services</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..." data-key-placeholder="form-message" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Send Message</button>
-                    <p class="form-note">We'll respond within 24 hours</p>
+                    <button type="submit" class="btn btn-primary btn-block" data-key="form-submit">Send Message</button>
+                    <p class="form-note" data-key="form-note">We'll respond within 24 hours</p>
                 </form>
             </div>
         </div>
@@ -331,7 +335,7 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <h3>Assist<span>OnIT</span></h3>
-                    <p>Your trusted partner for IT support, cybersecurity, programming, website solutions, and electrical engineering.</p>
+                    <p data-key="footer-desc">Your trusted partner for IT support, cybersecurity, programming, website solutions, and electrical engineering.</p>
                     <div class="social-links">
                         <a href="https://www.instagram.com/AssistOnIT" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.tiktok.com/@AssistOnIT" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
@@ -340,26 +344,26 @@
                     </div>
                 </div>
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
+                    <h4 data-key="footer-quick">Quick Links</h4>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#home" data-key="nav-home">Home</a></li>
+                        <li><a href="#services" data-key="nav-services">Services</a></li>
+                        <li><a href="#about" data-key="nav-about">About</a></li>
+                        <li><a href="#contact" data-key="nav-contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h4>Services</h4>
+                    <h4 data-key="footer-services">Services</h4>
                     <ul>
-                        <li><a href="#services">IT Support</a></li>
-                        <li><a href="#services">Cybersecurity</a></li>
-                        <li><a href="#services">Programming & Web</a></li>
-                        <li><a href="#services">Electrical Engineering</a></li>
+                        <li><a href="#services" data-key="service1-title">IT Support</a></li>
+                        <li><a href="#services" data-key="service2-title">Cybersecurity</a></li>
+                        <li><a href="#services" data-key="service3-title">Programming & Web</a></li>
+                        <li><a href="#services" data-key="service4-title">Electrical Engineering</a></li>
                     </ul>
                 </div>
                 <div class="footer-newsletter">
-                    <h4>Follow Us</h4>
-                    <p>Connect with us on social media</p>
+                    <h4 data-key="footer-follow">Follow Us</h4>
+                    <p data-key="footer-social-text">Connect with us on social media</p>
                     <div class="social-handles">
                         <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/AssistOnIT" target="_blank" rel="noopener noreferrer">@AssistOnIT</a></p>
                         <p><i class="fab fa-tiktok"></i> <a href="https://www.tiktok.com/@AssistOnIT" target="_blank" rel="noopener noreferrer">@AssistOnIT</a></p>
@@ -369,7 +373,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 AssistOnIT. All rights reserved. | Follow us: <a href="https://www.instagram.com/AssistOnIT" target="_blank" rel="noopener noreferrer">@AssistOnIT</a> on social media</p>
+                <p>&copy; 2026 AssistOnIT. <span data-key="footer-rights">All rights reserved.</span> | <span data-key="footer-follow-text">Follow us:</span> <a href="https://www.instagram.com/AssistOnIT" target="_blank" rel="noopener noreferrer">@AssistOnIT</a></p>
             </div>
         </div>
     </footer>
